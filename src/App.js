@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import Cabecera from './components/Cabecera'
+import Listado from './components/Listado'
 
 function App() {
+
+  const [compra, setCompra] = useState(0)
+
+  const aumentarCarrito = ()=>{
+    setCompra(compra + 1)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Cabecera cantidad={compra}/>
+      <Listado carrito={aumentarCarrito}/>
     </div>
   );
 }
